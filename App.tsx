@@ -12,6 +12,7 @@ import AiBusinessPlanGenerator from './pages/AiBusinessPlanGenerator';
 import AiEventsAndNetworking from './pages/AiEventsAndNetworking';
 import PerksAndBenefits from './pages/PerksAndBenefits';
 import JobsAndOpportunities from './pages/JobsAndOpportunities';
+import EducationAndWorkshops from './pages/EducationAndWorkshops';
 
 export type Page = 
   | 'Introduction'
@@ -25,10 +26,11 @@ export type Page =
   | 'AI Business Plan Generator'
   | 'AI Events & Networking'
   | 'Perks & Benefits'
-  | 'Jobs & Opportunities';
+  | 'Jobs & Opportunities'
+  | 'Education & Workshops';
 
 const App: React.FC = () => {
-    const [activePage, setActivePage] = useState<Page>('Jobs & Opportunities');
+    const [activePage, setActivePage] = useState<Page>('Education & Workshops');
 
     const renderPage = () => {
         switch (activePage) {
@@ -56,6 +58,8 @@ const App: React.FC = () => {
                 return <PerksAndBenefits />;
             case 'Jobs & Opportunities':
                 return <JobsAndOpportunities />;
+            case 'Education & Workshops':
+                return <EducationAndWorkshops />;
             default:
                 return <Introduction />;
         }

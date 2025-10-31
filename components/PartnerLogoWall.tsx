@@ -13,10 +13,16 @@ const logos = [
     { Component: RutaNLogo, name: 'Ruta N' },
 ];
 
-export const PartnerLogoWall: React.FC = () => {
+interface PartnerLogoWallProps {
+    caption?: string;
+}
+
+export const PartnerLogoWall: React.FC<PartnerLogoWallProps> = ({ caption }) => {
     return (
         <div className="w-full text-center">
-            <p className="mb-8 font-semibold text-[#6E6E6E]">Trusted by the world’s leading startup partners.</p>
+            <p className="mb-8 font-semibold text-[#6E6E6E]">
+                {caption || "Trusted by the world’s leading startup partners."}
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-8 gap-y-6 items-center">
                 {logos.map(({ Component, name }, index) => (
                     <motion.div

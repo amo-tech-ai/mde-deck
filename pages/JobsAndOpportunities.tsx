@@ -97,7 +97,7 @@ const JobsAndOpportunities: React.FC = () => {
 
                 {/* Partners & Integrations */}
                 <motion.section variants={itemVariants} className="w-full">
-                    <PartnerLogoWall />
+                    <PartnerLogoWall caption="Connecting startups, talent, and ecosystem partners to accelerate AI innovation." />
                 </motion.section>
 
                 {/* CTA Bar */}

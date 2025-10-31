@@ -134,3 +134,27 @@ export interface CandidateBenefitCardProps {
     title: string;
     description: string;
 }
+
+// For Education & Workshops
+export interface TrainingTrackCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    color: 'deep-blue' | 'off-white';
+}
+
+export interface SpeakerProps {
+    photo: string;
+    name: string;
+    title: string;
+    organization: string;
+    topic: string;
+    date: string;
+}
+
+export interface ModuleProps {
+    thumbnail: string;
+    title: string;
+    duration: string;
+    level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Founders Track';
+}
