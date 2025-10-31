@@ -2,13 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckIcon } from './DecorativeElements';
 
-const features = [
-    { name: 'Creation Time', traditional: '10+ hours', mde: '<1 hour' },
-    { name: 'Design Quality', traditional: 'Inconsistent', mde: 'Consistent & Branded' },
-    { name: 'Storytelling', traditional: 'Founder-written', mde: 'AI-optimized' },
-    { name: 'Collaboration', traditional: 'Limited', mde: 'Real-time & Shareable' },
-    { name: 'Analytics', traditional: 'None', mde: 'Built-in Viewer Tracking' },
-];
+interface ComparisonRow {
+    name: string;
+    traditional: string;
+    mde: string;
+}
+
+interface AdvantageComparisonTableProps {
+    title: string;
+    description: string;
+    data: ComparisonRow[];
+}
 
 const rowVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -21,16 +25,16 @@ const rowVariants = {
     }),
 };
 
-export const AdvantageComparisonTable: React.FC = () => {
+export const AdvantageComparisonTable: React.FC<AdvantageComparisonTableProps> = ({ title, description, data }) => {
     return (
         <div className="w-full bg-white/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 className="text-2xl font-bold text-[#00334F] mb-4">A 10x Better Experience</h3>
-                    <p className="text-[#6E6E6E]">MDE.AI's generator streamlines every step of the creation process, saving founders time and delivering a superior, investor-ready result.</p>
+                    <h3 className="text-2xl font-bold text-[#00334F] mb-4">{title}</h3>
+                    <p className="text-[#6E6E6E]">{description}</p>
                 </div>
                 <div className="space-y-4">
-                    {features.map((feature, i) => (
+                    {data.map((feature, i) => (
                         <motion.div
                             key={feature.name}
                             custom={i}

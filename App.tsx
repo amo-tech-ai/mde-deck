@@ -8,6 +8,10 @@ import Traction from './pages/Traction';
 import ValueProposition from './pages/ValueProposition';
 import HowItWorks from './pages/HowItWorks';
 import AiPitchDeckGenerator from './pages/AiPitchDeckGenerator';
+import AiBusinessPlanGenerator from './pages/AiBusinessPlanGenerator';
+import AiEventsAndNetworking from './pages/AiEventsAndNetworking';
+import PerksAndBenefits from './pages/PerksAndBenefits';
+import JobsAndOpportunities from './pages/JobsAndOpportunities';
 
 export type Page = 
   | 'Introduction'
@@ -17,10 +21,14 @@ export type Page =
   | 'Traction'
   | 'Value Proposition'
   | 'How It Works'
-  | 'AI Pitch Deck Generator';
+  | 'AI Pitch Deck Generator'
+  | 'AI Business Plan Generator'
+  | 'AI Events & Networking'
+  | 'Perks & Benefits'
+  | 'Jobs & Opportunities';
 
 const App: React.FC = () => {
-    const [activePage, setActivePage] = useState<Page>('AI Pitch Deck Generator');
+    const [activePage, setActivePage] = useState<Page>('Jobs & Opportunities');
 
     const renderPage = () => {
         switch (activePage) {
@@ -40,6 +48,14 @@ const App: React.FC = () => {
                 return <HowItWorks />;
             case 'AI Pitch Deck Generator':
                 return <AiPitchDeckGenerator />;
+            case 'AI Business Plan Generator':
+                return <AiBusinessPlanGenerator />;
+            case 'AI Events & Networking':
+                return <AiEventsAndNetworking />;
+            case 'Perks & Benefits':
+                return <PerksAndBenefits />;
+            case 'Jobs & Opportunities':
+                return <JobsAndOpportunities />;
             default:
                 return <Introduction />;
         }

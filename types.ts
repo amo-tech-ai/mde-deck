@@ -75,3 +75,62 @@ export interface FeatureHighlightCardProps {
     icon: React.ReactNode;
     color: 'deep-blue' | 'off-white' | 'mustard';
 }
+
+// For AI Events & Networking
+export interface EventCardProps {
+    title: string;
+    date: string;
+    location: string;
+    description: string;
+    category: string;
+    isFeatured?: boolean;
+}
+
+export interface CompanyCarouselCardProps {
+    logo: React.ReactNode;
+    name: string;
+    description: string;
+    flag: React.ReactNode;
+}
+
+// For Perks & Benefits
+export interface BenefitCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    color: 'deep-blue' | 'off-white';
+}
+
+export interface PerkProps {
+    logo: React.ReactNode;
+    title: string;
+    description: string;
+    value?: string;
+    category: string;
+}
+
+export interface TestimonialProps {
+    quote: string;
+    name: string;
+    role: string;
+    logo: React.ReactNode;
+    image: string;
+}
+
+// For Jobs & Opportunities
+export interface JobCardProps {
+    title: string;
+    company: string;
+    logo: React.ReactNode;
+    location: string;
+    summary: string;
+    tags: string[];
+    isFeatured?: boolean;
+    isHot?: boolean;
+}
+
+export interface CandidateBenefitCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+}

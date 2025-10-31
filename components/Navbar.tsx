@@ -15,7 +15,11 @@ const pages: Page[] = [
     'Traction',
     'Value Proposition',
     'How It Works',
-    'AI Pitch Deck Generator'
+    'AI Pitch Deck Generator',
+    'AI Business Plan Generator',
+    'AI Events & Networking',
+    'Perks & Benefits',
+    'Jobs & Opportunities'
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {

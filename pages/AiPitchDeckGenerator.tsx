@@ -29,6 +29,14 @@ const AiPitchDeckGenerator: React.FC = () => {
         { title: 'Smart Content Writing', description: 'AI refines your narrative using proven investor language and tone.', icon: <PenIcon />, color: 'off-white' as const },
         { title: 'Customization & Branding', description: 'Edit, restyle, and export decks that match your visual identity.', icon: <PuzzleIcon />, color: 'mustard' as const },
     ];
+
+    const comparisonData = [
+        { name: 'Creation Time', traditional: '10+ hours', mde: '<1 hour' },
+        { name: 'Design Quality', traditional: 'Inconsistent', mde: 'Consistent & Branded' },
+        { name: 'Storytelling', traditional: 'Founder-written', mde: 'AI-optimized' },
+        { name: 'Collaboration', traditional: 'Limited', mde: 'Real-time & Shareable' },
+        { name: 'Analytics', traditional: 'None', mde: 'Built-in Viewer Tracking' },
+    ];
     
     const quote = { text: "This AI deck generator cut our prep time by 90%. We raised in two weeks.", author: "Beta Founder, Ruta N Program" };
 
@@ -68,7 +76,11 @@ const AiPitchDeckGenerator: React.FC = () => {
 
                 {/* Comparative Advantage */}
                 <motion.section variants={itemVariants} className="w-full">
-                    <AdvantageComparisonTable />
+                    <AdvantageComparisonTable 
+                        title="A 10x Better Experience"
+                        description="MDE.AI's generator streamlines every step of the creation process, saving founders time and delivering a superior, investor-ready result."
+                        data={comparisonData}
+                    />
                 </motion.section>
 
                 {/* UI Showcase */}
