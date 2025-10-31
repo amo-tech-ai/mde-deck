@@ -19,7 +19,8 @@ const pages: Page[] = [
     'AI Business Plan Generator',
     'AI Events & Networking',
     'Perks & Benefits',
-    'Jobs & Opportunities'
+    'Jobs & Opportunities',
+    'Education & Workshops'
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {
