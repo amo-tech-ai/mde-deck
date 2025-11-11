@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FlowerIcon, CircleIcon, DesignIcon, AccessIcon, TimeIcon } from '../components/DecorativeElements';
 
 const FeatureCard: React.FC<{ title: string; description: string; icon: React.ReactNode; isHighlighted?: boolean; }> = ({ title, description, icon, isHighlighted }) => {
@@ -13,7 +14,8 @@ const FeatureCard: React.FC<{ title: string; description: string; icon: React.Re
             whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
         >
             <div className={`mb-4 w-12 h-12 rounded-full flex items-center justify-center ${isHighlighted ? 'bg-white/10' : 'bg-[#00334F]/10'}`}>
-                {React.cloneElement(icon as React.ReactElement, { className: 'w-6 h-6 ' + (isHighlighted ? 'text-white' : 'text-[#00334F]') })}
+                {/* FIX: Check if icon is a valid React element and cast to React.ReactElement<any> to allow adding a className prop. */}
+                {React.isValidElement(icon) && React.cloneElement(icon as React.ReactElement<any>, { className: 'w-6 h-6 ' + (isHighlighted ? 'text-white' : 'text-[#00334F]') })}
             </div>
             <h3 className="text-xl font-bold mb-2">{title}</h3>
             <p className={`text-sm ${isHighlighted ? 'text-white/80' : 'text-[#6E6E6E]'}`}>{description}</p>
@@ -26,12 +28,14 @@ const Challenge: React.FC = () => {
         background: 'radial-gradient(circle at 90% 10%, rgba(233, 122, 65, 0.1), transparent 30%), #FBF6F1'
     };
     
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };

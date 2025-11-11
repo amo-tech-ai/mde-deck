@@ -35,7 +35,9 @@ export const AcquisitionFunnel: React.FC = () => {
                              initial={{ scaleX: 0, opacity: 0 }}
                              whileInView={{ scaleX: 1, opacity: 1 }}
                              viewport={{ once: true }}
-                             transition={{ duration: 0.5, delay: 0.1 + index * 0.15, originX: 0 }}
+                             // FIX: `originX` should be in `style`, not `transition`. This caused the error "Type 'number' has no properties in common with type 'ValueTransition'".
+                             style={{ originX: 0 }}
+                             transition={{ duration: 0.5, delay: 0.1 + index * 0.15 }}
                         />
                     )}
                 </React.Fragment>

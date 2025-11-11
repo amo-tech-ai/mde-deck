@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FlowerIcon, CircleIcon, CheckIcon, SkillDiscoveryIcon, RocketIcon, NetworkIcon } from '../components/DecorativeElements';
 import { MatchingFlowDiagram } from '../components/MatchingFlowDiagram';
 import { JobCardGrid } from '../components/JobCardGrid';
@@ -12,12 +13,14 @@ const JobsAndOpportunities: React.FC = () => {
         background: 'radial-gradient(circle at 10% 20%, rgba(0, 51, 79, 0.05), transparent 40%), radial-gradient(circle at 90% 80%, rgba(233, 122, 65, 0.05), transparent 40%), #FBF6F1'
     };
 
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };

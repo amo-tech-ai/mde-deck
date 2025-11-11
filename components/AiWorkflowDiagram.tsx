@@ -1,8 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, type Variants } from 'framer-motion';
 import { BrainIcon, ChartIcon, NetworkIcon } from './DecorativeElements';
 
-const containerVariants = {
+// FIX: Added Variants type to ensure correct type checking for framer-motion props.
+const containerVariants: Variants = {
   animate: {
     transition: {
       staggerChildren: 0.2,
@@ -10,12 +12,14 @@ const containerVariants = {
   },
 };
 
-const circleVariants = {
+// FIX: Added Variants type to ensure correct type checking for framer-motion props.
+const circleVariants: Variants = {
   initial: { scale: 0, opacity: 0 },
   animate: { scale: 1, opacity: 1, transition: { type: 'spring', stiffness: 260, damping: 20 } },
 };
 
-const lineVariants = {
+// FIX: Added Variants type to ensure correct type checking for framer-motion props.
+const lineVariants: Variants = {
   initial: { pathLength: 0 },
   animate: { pathLength: 1, transition: { duration: 1, ease: "easeInOut", delay: 0.5 } },
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FlowerIcon, CircleIcon, IdeaIcon, BrainIcon, ChartIcon, NetworkIcon, RocketIcon, UserIcon, ChatIcon, BriefcaseIcon, AiIcon, CommunityIcon } from '../components/DecorativeElements';
 import { JourneyMap } from '../components/JourneyMap';
 import { AiWorkflowDiagram } from '../components/AiWorkflowDiagram';
@@ -10,12 +11,14 @@ const HowItWorks: React.FC = () => {
         background: 'radial-gradient(circle at top right, rgba(0, 51, 79, 0.05), transparent 40%), radial-gradient(circle at bottom left, rgba(233, 122, 65, 0.05), transparent 40%), #FBF6F1'
     };
 
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.15, duration: 0.5 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };

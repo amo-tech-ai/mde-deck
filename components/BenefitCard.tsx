@@ -14,7 +14,8 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, descripti
             whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
         >
             <div className={`mb-4 w-12 h-12 rounded-full flex items-center justify-center ${color === 'deep-blue' ? 'bg-white/10' : 'bg-[#00334F]/10'}`}>
-                {React.cloneElement(icon as React.ReactElement, { className: 'w-6 h-6 ' + (color === 'deep-blue' ? 'text-white' : 'text-[#00334F]') })}
+                {/* FIX: Check if icon is a valid React element and cast to React.ReactElement<any> to allow adding a className prop. */}
+                {React.isValidElement(icon) && React.cloneElement(icon as React.ReactElement<any>, { className: 'w-6 h-6 ' + (color === 'deep-blue' ? 'text-white' : 'text-[#00334F]') })}
             </div>
             <h3 className="text-xl font-bold mb-2">{title}</h3>
             <p className={`text-sm ${color === 'deep-blue' ? 'text-white/80' : 'text-[#6E6E6E]'}`}>{description}</p>

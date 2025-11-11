@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FlowerIcon, CircleIcon, IdeaIcon, CommunityIcon, RocketIcon } from '../components/DecorativeElements';
 
 const MissionCard: React.FC<{ title: string; description: string; icon: React.ReactNode; color: string }> = ({ title, description, icon, color }) => (
@@ -39,12 +40,14 @@ const Introduction: React.FC = () => {
         background: 'linear-gradient(180deg, rgba(0, 51, 79, 0.03) 0%, rgba(251, 246, 241, 0) 30%), #FBF6F1',
     };
     
-     const containerVariants = {
+     // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };

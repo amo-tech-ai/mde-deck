@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FlowerIcon, CircleIcon, SCurveIcon, RutaNLogo, EAFITLogo, C4IRLogo } from '../components/DecorativeElements';
 import { TractionMetricCard } from '../components/TractionMetricCard';
 import { GrowthProjectionChart } from '../components/GrowthProjectionChart';
@@ -12,12 +13,14 @@ const Traction: React.FC = () => {
         background: 'radial-gradient(circle at 10% 10%, rgba(243, 185, 60, 0.05), transparent 30%), radial-gradient(circle at 90% 90%, rgba(0, 51, 79, 0.05), transparent 40%), #FBF6F1'
     };
 
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { RevenueLoopDiagram } from '../components/RevenueLoopDiagram';
 import { RevenueStreamCard } from '../components/RevenueStreamCard';
 import { AcquisitionFunnel } from '../components/AcquisitionFunnel';
@@ -10,12 +11,14 @@ const BusinessModel: React.FC = () => {
     const mainStyle = {
         background: 'radial-gradient(circle at top right, rgba(0, 51, 79, 0.05), transparent 40%), radial-gradient(circle at bottom left, rgba(233, 122, 65, 0.05), transparent 40%), #FBF6F1'
     };
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1, duration: 0.5 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to correctly type animation variants.
+import { motion, Variants } from 'framer-motion';
 import { FeatureHighlightCard } from '../components/FeatureHighlightCard';
 import { HowItWorksDiagram } from '../components/HowItWorksDiagram';
 import { AdvantageComparisonTable } from '../components/AdvantageComparisonTable';
@@ -13,12 +14,14 @@ const AiPitchDeckGenerator: React.FC = () => {
         background: 'radial-gradient(circle at top left, rgba(233, 122, 65, 0.05), transparent 30%), radial-gradient(circle at bottom right, rgba(0, 51, 79, 0.05), transparent 40%), #FBF6F1'
     };
 
-    const containerVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
-    const itemVariants = {
+    // FIX: Added Variants type to ensure correct type checking for framer-motion props.
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };

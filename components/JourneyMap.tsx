@@ -46,7 +46,8 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ steps }) => {
                             {step.step}
                         </motion.div>
                         <div className="bg-[#FBF6F1] p-4 rounded-2xl relative">
-                             <div className="text-[#00334F] mb-2">{React.cloneElement(step.icon as React.ReactElement, { className: 'w-8 h-8 mx-auto' })}</div>
+                             {/* FIX: Check if icon is a valid React element and cast to React.ReactElement<any> to allow adding a className prop. */}
+                             <div className="text-[#00334F] mb-2">{React.isValidElement(step.icon) && React.cloneElement(step.icon as React.ReactElement<any>, { className: 'w-8 h-8 mx-auto' })}</div>
                              <h3 className="font-bold text-lg text-[#00334F]">{step.title}</h3>
                              <p className="text-sm text-[#6E6E6E] mt-1">{step.description}</p>
                         </div>
